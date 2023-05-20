@@ -1,22 +1,23 @@
 "use client";
-import Hero from "@/components/hero/hero";
+import React from "react";
+import { BlogService } from "@/services/blog.service";
+import { CategoryService } from "@/services/category.service";
 import { Box } from "@mui/material";
 import Sidebar from "@/components/sidebar/sidebar";
 import Content from "@/components/content/content";
-import { BlogService } from "@/services/blog.service";
-import { CategoryService } from "@/services/category.service";
 import Seo from "@/seo.layout/seo";
-async function getData() {
-  const blogs = await BlogService.getAllBlogs();
+import { useRouter } from "next/navigation";
+
+async function getData(slug: string) {
+  const blogs = await BlogService.getBlogByCategorySlug(slug);
   const latestBlogs = await BlogService.getLatestBlogs();
   const categories = await CategoryService.getAllCategories();
-  return { blogs, latestBlogs,categories };
+  return { latestBlogs, categories, blogs };
 }
-export default async function Home() {
-  const data = await getData();
+const BlogsByCategory = async (props: any) => {
+  const data = await getData(`${props.params.slug}`);
   return (
-    <Seo>
-      <Hero blogs={data.blogs}/>
+    <Seo metaTitle={`${props.params.slug}-category`}>
       <Box
         sx={{
           display: "flex",
@@ -30,4 +31,6 @@ export default async function Home() {
       </Box>
     </Seo>
   );
-}
+};
+
+export default BlogsByCategory;
