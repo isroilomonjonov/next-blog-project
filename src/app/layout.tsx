@@ -27,11 +27,11 @@ export default function RootLayout({
   React.useEffect(() => {
     const handleRouteStart = () => NProgress.start();
     const handleRouteDone = () => NProgress.done();
- 
+
     Router.events.on("routeChangeStart", handleRouteStart);
     Router.events.on("routeChangeComplete", handleRouteDone);
     Router.events.on("routeChangeError", handleRouteDone);
- 
+
     return () => {
       // Make sure to remove the event handler on unmount!
       Router.events.off("routeChangeStart", handleRouteStart);
@@ -43,7 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} ${roboto.className}`}>
         <Navbar />
-        <Box minHeight={'90vh'}> {children} </Box>
+        <Box minHeight={"90vh"}> {children} </Box>
         <Footer />
       </body>
     </html>

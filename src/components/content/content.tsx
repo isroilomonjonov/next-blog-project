@@ -5,10 +5,10 @@ import { format, formatDistance, formatRelative, subDays } from "date-fns";
 import Avatar from "@mui/material/Avatar";
 import { ContentProps } from "./content.props";
 import { readingTime } from "@/helpers/time.format";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
-const Content = ({blogs}:ContentProps) => {
-  const router=useRouter()
+const Content = ({ blogs }: ContentProps) => {
+  const router = useRouter();
   return (
     <Box width={{ xs: "100%", lg: "70%" }}>
       {blogs.map((item) => (
@@ -20,11 +20,15 @@ const Content = ({blogs}:ContentProps) => {
               marginTop: "20px",
               borderRadius: "8px",
               boxShadow: "0px 8px 16px rgba(255,255,255,.2)",
-              cursor:'pointer'
+              cursor: "pointer",
             }}
-            onClick={()=>router.push(`/blogs/${item.slug}`)}
+            onClick={() => router.push(`/blogs/${item.slug}`)}
           >
-            <Box position={"relative"} width={"100%"} height={{xs:'30vh',md:'50vh'}}>
+            <Box
+              position={"relative"}
+              width={"100%"}
+              height={{ xs: "30vh", md: "50vh" }}
+            >
               <Image
                 src={item.image.url}
                 alt={item.title}
@@ -53,7 +57,8 @@ const Content = ({blogs}:ContentProps) => {
                 <Box>
                   <Typography>{item.author.name}</Typography>
                   <Box color={"gray"}>
-                    {format(new Date(item.createdAt), "dd MMM, yyyy")} &#x2022; {readingTime(item.description.text)}min read
+                    {format(new Date(item.createdAt), "dd MMM, yyyy")} &#x2022;{" "}
+                    {readingTime(item.description.text)}min read
                   </Box>
                 </Box>
               </Box>

@@ -19,7 +19,7 @@ const DetailedBlogPage = async (props: any) => {
   const { blog, latestBlogs, categories } = await getData(
     props.params.slug as string
   );
-  
+
   return (
     <Seo metaTitle={blog.title}>
       <Box
@@ -49,7 +49,7 @@ const DetailedBlogPage = async (props: any) => {
               style={{ objectFit: "cover", borderRadius: "10px" }}
             />
           </Box>
-          <Box display={"flex"} flexDirection={"column"} rowGap={"10px"} >
+          <Box display={"flex"} flexDirection={"column"} rowGap={"10px"}>
             <Box
               sx={{
                 display: "flex",
@@ -63,7 +63,10 @@ const DetailedBlogPage = async (props: any) => {
                 <Typography>{blog.author.name}</Typography>
                 <Box color={"gray"}>
                   {format(new Date(blog.createdAt), "dd MMM, yyyy")} &#x2022;{" "}
-                  {readingTime(blog.description.text?blog.description.text:'')}min read
+                  {readingTime(
+                    blog.description.text ? blog.description.text : ""
+                  )}
+                  min read
                 </Box>
               </Box>
             </Box>
@@ -73,8 +76,11 @@ const DetailedBlogPage = async (props: any) => {
             <Typography variant="h5" color={"gray"}>
               {blog.excerpt}
             </Typography>
-            <Divider color={"gray"}/>
-            <div style={{opacity:'.8'}} dangerouslySetInnerHTML={{__html:blog.description.html}}/>
+            <Divider color={"gray"} />
+            <div
+              style={{ opacity: ".8" }}
+              dangerouslySetInnerHTML={{ __html: blog.description.html }}
+            />
           </Box>
         </Box>
         <Sidebar blogs={latestBlogs} categories={categories} />

@@ -19,7 +19,7 @@ const Blogs = async () => {
           gap: "20px",
           padding: "20px",
           flexDirection: { xs: "column", lg: "row" },
-          justifyContent:'center'
+          justifyContent: "center",
         }}
       >
         <Content blogs={data.blogs} />

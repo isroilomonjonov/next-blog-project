@@ -10,13 +10,13 @@ async function getData() {
   const blogs = await BlogService.getAllBlogs();
   const latestBlogs = await BlogService.getLatestBlogs();
   const categories = await CategoryService.getAllCategories();
-  return { blogs, latestBlogs,categories };
+  return { blogs, latestBlogs, categories };
 }
 export default async function Home() {
   const data = await getData();
   return (
     <Seo>
-      <Hero blogs={data.blogs}/>
+      <Hero blogs={data.blogs} />
       <Box
         sx={{
           display: "flex",

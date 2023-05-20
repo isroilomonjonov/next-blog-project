@@ -37,7 +37,11 @@ const Navbar = (props: Props) => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center",backgroundColor:'#141414',color: '#FFFFFF'}} height={'100%'}>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: "center", backgroundColor: "#141414", color: "#FFFFFF" }}
+      height={"100%"}
+    >
       <Box
         sx={{
           display: "flex",
@@ -52,11 +56,12 @@ const Navbar = (props: Props) => {
         <CloseIcon />
       </Box>
 
-      <Divider color={'white'} />
+      <Divider color={"white"} />
       <List>
         {navItems.map((item) => (
           <ListItem key={item.route} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}
+            <ListItemButton
+              sx={{ textAlign: "center" }}
               onClick={() => router.push(item.route)}
             >
               <ListItemText primary={item.label} />
@@ -86,8 +91,12 @@ const Navbar = (props: Props) => {
           <Typography
             variant="h6"
             component="div"
-            onClick={() => router.push('/')}
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" },cursor:'pointer' }}
+            onClick={() => router.push("/")}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", sm: "block" },
+              cursor: "pointer",
+            }}
           >
             Isroiljon Blogs
           </Typography>

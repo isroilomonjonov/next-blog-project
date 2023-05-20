@@ -4,10 +4,10 @@ import { siteConfig } from "@/config/site.config";
 
 const Seo = ({
   children,
-  author=siteConfig.author,
-  metaDescription=siteConfig.metaDescription,
-  metaKeywords=siteConfig.metaKeywords,
-  metaTitle=siteConfig.metaTitle,
+  author = siteConfig.author,
+  metaDescription = siteConfig.metaDescription,
+  metaKeywords = siteConfig.metaKeywords,
+  metaTitle = siteConfig.metaTitle,
 }: SeoProps) => {
   return (
     <>
@@ -18,8 +18,7 @@ const Seo = ({
       <meta name="description" content={metaDescription} />
       <meta name="keyword" content={metaKeywords} />
       <meta name="author" content={author} />
-      <link rel="shortcut icon" href={`/blog.png`} type="image/x-icon"/>
-
+      <link rel="shortcut icon" href={`/blog.png`} type="image/x-icon" />
 
       {children}
     </>

@@ -5,13 +5,13 @@ import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography/Typography";
-import { format, formatDistance, formatRelative, subDays } from 'date-fns'
+import { format, formatDistance, formatRelative, subDays } from "date-fns";
 import { HeroProps } from "./hero.props";
 import { readingTime } from "@/helpers/time.format";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
-const Hero = ({blogs}:HeroProps) => {
-  const router=useRouter()
+const Hero = ({ blogs }: HeroProps) => {
+  const router = useRouter();
 
   return (
     <Box width="100%" height="70vh" sx={{ backgroundColor: "red" }}>
@@ -24,9 +24,10 @@ const Hero = ({blogs}:HeroProps) => {
         }}
       >
         {blogs.map((item) => (
-          <Box key={item.id} 
-          onClick={()=>router.push(`/blogs/${item.slug}`)}
-          sx={{cursor:'pointer'}}
+          <Box
+            key={item.id}
+            onClick={() => router.push(`/blogs/${item.slug}`)}
+            sx={{ cursor: "pointer" }}
           >
             <Box sx={{ position: "relative", width: "100%", height: "70vh" }}>
               <Image
@@ -48,17 +49,24 @@ const Hero = ({blogs}:HeroProps) => {
                 }}
               >
                 <Box
-                  width={{xs:"100%",md:'70%'}}
+                  width={{ xs: "100%", md: "70%" }}
                   position={"relative"}
                   sx={{
                     top: "50%",
                     transform: "translateY(-50%)",
-                    paddingLeft: {xs:"10px",md:'50px'},
+                    paddingLeft: { xs: "10px", md: "50px" },
                   }}
                   zIndex={99}
                 >
-                  <Typography sx={{fontSize:{xs:'30px',md:'50px'}}}>{item.title}</Typography>
-                  <Typography color={'gray'} sx={{fontSize:{xs:'20px',md:'30px'}}}>{item.excerpt}</Typography>
+                  <Typography sx={{ fontSize: { xs: "30px", md: "50px" } }}>
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    color={"gray"}
+                    sx={{ fontSize: { xs: "20px", md: "30px" } }}
+                  >
+                    {item.excerpt}
+                  </Typography>
                   <Box
                     sx={{
                       display: "flex",
@@ -67,10 +75,16 @@ const Hero = ({blogs}:HeroProps) => {
                       alignItems: "center",
                     }}
                   >
-                    <Avatar alt={item.author.name} src={item.author.image.url} />
+                    <Avatar
+                      alt={item.author.name}
+                      src={item.author.image.url}
+                    />
                     <Box>
                       <Typography>{item.author.name}</Typography>
-                      <Box color={'gray'}>{format(new Date(item.createdAt),'dd MMM, yyyy')} &#x2022; {readingTime(item.description.text)}min read</Box>
+                      <Box color={"gray"}>
+                        {format(new Date(item.createdAt), "dd MMM, yyyy")}{" "}
+                        &#x2022; {readingTime(item.description.text)}min read
+                      </Box>
                     </Box>
                   </Box>
                 </Box>
@@ -84,5 +98,3 @@ const Hero = ({blogs}:HeroProps) => {
 };
 
 export default Hero;
-
-

@@ -1,5 +1,5 @@
 import { BlogsType } from "@/interfaces/blogs.interface";
 
-export interface ContentProps{
-    blogs:BlogsType[];
+export interface ContentProps {
+  blogs: BlogsType[];
 }

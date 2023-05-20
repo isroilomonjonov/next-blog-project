@@ -5,16 +5,16 @@ import { navItems } from "@/config/constants";
 import Divider from "@mui/material/Divider";
 import Avatar from "@mui/material/Avatar";
 import { format, formatDistance, formatRelative, subDays } from "date-fns";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import { SidebarProps } from "./sidebar.props";
-const Sidebar = ({blogs,categories}:SidebarProps) => {
-  const router=useRouter()
+const Sidebar = ({ blogs, categories }: SidebarProps) => {
+  const router = useRouter();
 
   return (
     <>
-      <Box width={{xs:'100%',lg:'30%'}}>
+      <Box width={{ xs: "100%", lg: "30%" }}>
         <Box
           sx={{ position: "sticky", top: "100px", transition: "all .3s ease" }}
         >
@@ -33,9 +33,11 @@ const Sidebar = ({blogs,categories}:SidebarProps) => {
               }}
             >
               {blogs.map((item) => (
-                <Box key={item.id} marginTop={"20px"} style={{cursor:'pointer'}}
-            onClick={()=>router.push(`/blogs/${item.slug}`)}
-                
+                <Box
+                  key={item.id}
+                  marginTop={"20px"}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => router.push(`/blogs/${item.slug}`)}
                 >
                   <Box
                     sx={{ display: "flex", gap: "20px", alignItems: "center" }}
@@ -57,7 +59,7 @@ const Sidebar = ({blogs,categories}:SidebarProps) => {
                       <Typography variant="body1">{item.title}</Typography>
                       {/* <Typography sx={{opacity:'.5'}}>{item.exerpt}</Typography> */}
                       <Box
-                        sx={{ 
+                        sx={{
                           display: "flex",
                           gap: "10px",
 
@@ -103,7 +105,9 @@ const Sidebar = ({blogs,categories}:SidebarProps) => {
               {categories.map((item) => (
                 <Fragment key={item.slug}>
                   <Button
-                  onClick={()=>{router.push(`/categories/${item.slug}`)}}
+                    onClick={() => {
+                      router.push(`/categories/${item.slug}`);
+                    }}
                     fullWidth
                     sx={{ justifyContent: "flex-start", height: "50px" }}
                   >
