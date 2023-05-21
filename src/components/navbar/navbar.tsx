@@ -112,13 +112,9 @@ const Navbar = (props: Props) => {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button
-                onClick={() => router.push(item.route)}
-                key={item.route}
-                sx={{ color: "#fff", cursor: "pointer" }}
-              >
+              <Link href={item.route} key={item.route}>
                 {item.label}
-              </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
