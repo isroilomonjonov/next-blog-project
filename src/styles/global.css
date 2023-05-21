@@ -12,3 +12,6 @@ body {
 #nprogress .bar {
   z-index: 2110 !important;
 }
+link{
+  color: #fff !important; 
+}
