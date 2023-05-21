@@ -35,7 +35,10 @@ const Navbar = (props: Props) => {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
+  const push=(link:string)=>{
+     console.log(link);
+     router.push(link);
+  }
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
@@ -62,7 +65,7 @@ const Navbar = (props: Props) => {
           <ListItem key={item.route} disablePadding>
             <ListItemButton
               sx={{ textAlign: "center" }}
-              onClick={() => router.push(`${item.route}`)}
+              onClick={() => push(`${item.route}`)}
             >
               <ListItemText primary={item.label} />
             </ListItemButton>
