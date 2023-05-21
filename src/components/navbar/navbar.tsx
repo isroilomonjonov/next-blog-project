@@ -62,7 +62,7 @@ const Navbar = (props: Props) => {
           <ListItem key={item.route} disablePadding>
             <ListItemButton
               sx={{ textAlign: "center" }}
-              onClick={() => router.push(item.route)}
+              onClick={() => router.push(`${item.route}`)}
             >
               <ListItemText primary={item.label} />
             </ListItemButton>
