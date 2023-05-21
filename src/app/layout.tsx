@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import {Roboto } from "next/font/google";
 import React from "react";
 import { Router } from "next/router";
-import styles from "@/styles/global.module.css";
+import "@/styles/global.css";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -37,7 +37,7 @@ export default function RootLayout({
   }, []);
   return (
     <html lang="en">
-      <body className={`${roboto.className} ${styles.body}`}>
+      <body className={`${roboto.className}`}>
         <Navbar />
         <Box minHeight={"90vh"}> {children} </Box>
         <Footer />
