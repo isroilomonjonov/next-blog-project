@@ -8,7 +8,7 @@ import { Inter, Roboto } from "next/font/google";
 import React from "react";
 import { Router } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
-import "src/styles/global.css";
+import "@/styles/global.css";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
