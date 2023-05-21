@@ -36,10 +36,10 @@ const Navbar = (props: Props) => {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const push=(link:string)=>{
-     console.log(link);
-     router.push(link);
-  }
+  const push = (link: string) => {
+    console.log(link);
+    router.push(link);
+  };
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
@@ -63,12 +63,18 @@ const Navbar = (props: Props) => {
       <Divider color={"white"} />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.route} disablePadding>
-            <Link
-              href={item.route}
-              style={{ textAlign: "center",display:'flex',justifyContent: 'center',alignItems: 'center'}}
-            >
-              <ListItemText primary={item.label}  sx={{textAlign:'center'}}/>
+          <ListItem
+            key={item.route}
+            disablePadding
+            sx={{
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Link href={item.route}>
+              <ListItemText primary={item.label} sx={{ textAlign: "center" }} />
             </Link>
           </ListItem>
         ))}
