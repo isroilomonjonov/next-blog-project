@@ -2,8 +2,8 @@
   z-index: 0;
 }
 .body {
-  background-color: #141414fa;
-  color: #fff;
+  background-color: #141414fa !important;
+  color: #fff !important;
 }
 #nprogress .bar {
   z-index: 2110 !important;
