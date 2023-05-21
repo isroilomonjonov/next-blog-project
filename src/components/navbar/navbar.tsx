@@ -68,7 +68,7 @@ const Navbar = (props: Props) => {
               href={item.route}
               style={{ textAlign: "center" }}
             >
-              <ListItemText primary={item.label} />
+              <ListItemText primary={item.label}  sx={{textAlign:'center'}}/>
             </Link>
           </ListItem>
         ))}
