@@ -66,7 +66,7 @@ const Navbar = (props: Props) => {
           <ListItem key={item.route} disablePadding>
             <Link
               href={item.route}
-              style={{ textAlign: "center" }}
+              style={{ textAlign: "center",display:'flex',justifyContent: 'center',alignItems: 'center'}}
             >
               <ListItemText primary={item.label}  sx={{textAlign:'center'}}/>
             </Link>
