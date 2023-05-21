@@ -4,11 +4,10 @@ import NProgress from "nprogress";
 import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
 import { Box } from "@mui/material";
-import { Inter, Roboto } from "next/font/google";
+import {Roboto } from "next/font/google";
 import React from "react";
 import { Router } from "next/router";
-const inter = Inter({ subsets: ["latin"] });
-import "@/styles/global.css";
+import styles from "@/styles/global.module.css";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -38,7 +37,7 @@ export default function RootLayout({
   }, []);
   return (
     <html lang="en">
-      <body className={`${inter.className} ${roboto.className}`}>
+      <body className={`${roboto.className} ${styles.body}`}>
         <Navbar />
         <Box minHeight={"90vh"}> {children} </Box>
         <Footer />
