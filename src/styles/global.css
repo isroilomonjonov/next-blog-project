@@ -1,6 +1,10 @@
 * {
   z-index: 0;
 }
+a{
+  text-decoration:none !important;
+  color: #fff !important;
+}
 body {
   background-color: #141414fa !important;
   color: #fff !important;
