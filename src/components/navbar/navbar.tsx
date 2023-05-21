@@ -17,6 +17,7 @@ import Button from "@mui/material/Button";
 import { navItems } from "@/config/constants";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Props {
   /**
@@ -63,12 +64,12 @@ const Navbar = (props: Props) => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.route} disablePadding>
-            <ListItemButton
-              sx={{ textAlign: "center" }}
-              onClick={() => push(`${item.route}`)}
+            <Link
+              href={item.route}
+              style={{ textAlign: "center" }}
             >
               <ListItemText primary={item.label} />
-            </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
