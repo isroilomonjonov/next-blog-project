@@ -4,13 +4,13 @@ import { CategoryService } from "@/services/category.service";
 import { Box, Typography, Divider, ButtonGroup, Button } from "@mui/material";
 import { useRouter } from "next/navigation";
 import Seo from "@/seo.layout/seo";
+import Link from "next/link";
 
 async function getData() {
   const categories = await CategoryService.getAllCategories();
   return { categories };
 }
 const Categories = async () => {
-  const router = useRouter();
 
   const data = await getData();
   return (
@@ -38,15 +38,9 @@ const Categories = async () => {
           aria-label="outlined primary button group"
         >
           {data.categories.map((item) => (
-            <Fragment key={item.slug}>
-              <Button
-                onClick={() => {
-                  router.push(`/categories/${item.slug}`);
-                }}
-              >
-                # {item.label}
-              </Button>
-            </Fragment>
+            <Link href={`/categories/${item.slug}`} key={item.slug}>
+              <Button># {item.label}</Button>
+            </Link>
           ))}
         </ButtonGroup>
       </Box>

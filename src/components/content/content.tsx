@@ -1,18 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import Image from "next/image";
-import { format, formatDistance, formatRelative, subDays } from "date-fns";
+import { format } from "date-fns";
 import Avatar from "@mui/material/Avatar";
 import { ContentProps } from "./content.props";
 import { readingTime } from "@/helpers/time.format";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Content = ({ blogs }: ContentProps) => {
-  const router = useRouter();
   return (
     <Box width={{ xs: "100%", lg: "70%" }}>
       {blogs.map((item) => (
-        <Fragment key={item.id}>
+        <Link href={`/blogs/${item.slug}`} key={item.id}>
           <Box
             sx={{
               backgroundColor: "rgba(0,0,0,.5)",
@@ -22,7 +21,6 @@ const Content = ({ blogs }: ContentProps) => {
               boxShadow: "0px 8px 16px rgba(255,255,255,.2)",
               cursor: "pointer",
             }}
-            onClick={() => router.push(`/blogs/${item.slug}`)}
           >
             <Box
               position={"relative"}
@@ -64,33 +62,10 @@ const Content = ({ blogs }: ContentProps) => {
               </Box>
             </Box>
           </Box>
-        </Fragment>
+        </Link>
       ))}
     </Box>
   );
 };
 
 export default Content;
-
-const data = [
-  {
-    image: "https://media.graphassets.com/MxJZhmooRRuudoErkQ38",
-    title: "Technical SEO with Hygraph",
-    exerpt:
-      "Get started with your SEO implementation when using a Headless CMS",
-    author: {
-      name: "Samar Badriddinov",
-      image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
-    },
-  },
-  {
-    image: "https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h",
-    title: "Union Types and Sortable Relations with Hygraph",
-    exerpt:
-      "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
-    author: {
-      name: "Samar Badriddinov",
-      image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
-    },
-  },
-];

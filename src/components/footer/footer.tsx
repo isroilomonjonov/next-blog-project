@@ -6,6 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { format, formatDistance, formatRelative, subDays } from "date-fns";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 const Footer = () => {
   const router = useRouter();
 

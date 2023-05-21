@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import { SidebarProps } from "./sidebar.props";
+import Link from "next/link";
 const Sidebar = ({ blogs, categories }: SidebarProps) => {
   const router = useRouter();
 
@@ -33,56 +34,57 @@ const Sidebar = ({ blogs, categories }: SidebarProps) => {
               }}
             >
               {blogs.map((item) => (
-                <Box
-                  key={item.id}
-                  marginTop={"20px"}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => router.push(`/blogs/${item.slug}`)}
-                >
-                  <Box
-                    sx={{ display: "flex", gap: "20px", alignItems: "center" }}
-                  >
-                    <Image
-                      src={item.image.url}
-                      alt={item.title}
-                      width={100}
-                      height={100}
-                      style={{ objectFit: "cover", borderRadius: "8px" }}
-                    />
+                <Link href={`/blogs/${item.slug}`} key={item.id}>
+                  <Box marginTop={"20px"} style={{ cursor: "pointer" }}>
                     <Box
                       sx={{
                         display: "flex",
-                        flexDirection: "column",
-                        gap: "7px",
+                        gap: "20px",
+                        alignItems: "center",
                       }}
                     >
-                      <Typography variant="body1">{item.title}</Typography>
-                      {/* <Typography sx={{opacity:'.5'}}>{item.exerpt}</Typography> */}
+                      <Image
+                        src={item.image.url}
+                        alt={item.title}
+                        width={100}
+                        height={100}
+                        style={{ objectFit: "cover", borderRadius: "8px" }}
+                      />
                       <Box
                         sx={{
                           display: "flex",
-                          gap: "10px",
-
-                          alignItems: "center",
+                          flexDirection: "column",
+                          gap: "7px",
                         }}
                       >
-                        <Avatar
-                          alt={item.author.name}
-                          src={item.author.image.url}
-                        />
-                        <Box>
-                          <Typography variant="body2">
-                            {item.author.name}
-                          </Typography>
-                          <Box sx={{ opacity: ".5" }}>
-                            {format(new Date(item.createdAt), "dd MMM, yyyy")}
+                        <Typography variant="body1">{item.title}</Typography>
+                        {/* <Typography sx={{opacity:'.5'}}>{item.exerpt}</Typography> */}
+                        <Box
+                          sx={{
+                            display: "flex",
+                            gap: "10px",
+
+                            alignItems: "center",
+                          }}
+                        >
+                          <Avatar
+                            alt={item.author.name}
+                            src={item.author.image.url}
+                          />
+                          <Box>
+                            <Typography variant="body2">
+                              {item.author.name}
+                            </Typography>
+                            <Box sx={{ opacity: ".5" }}>
+                              {format(new Date(item.createdAt), "dd MMM, yyyy")}
+                            </Box>
                           </Box>
                         </Box>
                       </Box>
                     </Box>
+                    <Divider sx={{ marginTop: "20px" }} color="gray" />
                   </Box>
-                  <Divider sx={{ marginTop: "20px" }} color="gray" />
-                </Box>
+                </Link>
               ))}
             </Box>
           </Box>
@@ -103,18 +105,15 @@ const Sidebar = ({ blogs, categories }: SidebarProps) => {
               }}
             >
               {categories.map((item) => (
-                <Fragment key={item.slug}>
+                <Link href={`/categories/${item.slug}`} key={item.slug}>
                   <Button
-                    onClick={() => {
-                      router.push(`/categories/${item.slug}`);
-                    }}
                     fullWidth
                     sx={{ justifyContent: "flex-start", height: "50px" }}
                   >
                     {item.label}
                   </Button>
                   <Divider color="gray" />
-                </Fragment>
+                </Link>
               ))}
             </Box>
           </Box>

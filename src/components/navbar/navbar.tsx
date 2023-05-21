@@ -113,7 +113,7 @@ const Navbar = (props: Props) => {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Link href={item.route} key={item.route}>
-                <Button sx={{color:'white'}}>{item.label}</Button>
+                <Button sx={{ color: "white" }}>{item.label}</Button>
               </Link>
             ))}
           </Box>
